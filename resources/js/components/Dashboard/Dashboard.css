@@ -1,0 +1,17 @@
+.title {
+    width: calc(100% - 50px);
+}
+
+.card span {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.card span i {
+    font-size: 40px;
+}
+
+.icon {
+    width: 50px;
+}
