@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Sale;
 use App\Models\People;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
@@ -34,7 +36,7 @@ class ClientController extends Controller
                         'people.address as address', 
                         'people.department as department', 
                         'people.township as township',
-                        'clients.status as status'
+                        //'clients.status as status'
                     )->get();
 
         return $clients;
@@ -114,26 +116,46 @@ class ClientController extends Controller
     public function show($id)
     {
         //
-        $client = DB::table('clients')
-                    ->where('clients.id', $id)
-                    ->leftJoin('people', 'people.dpi', '=', 'clients.dpi')
-                    // ->leftJoin('addresses', 'addresses.id', '=', 'people.id_address')
-                    //->leftJoin('departments', 'departments.id', '=', 'clients.id_department')
-                    //->leftJoing('townships', 'townships.id', '=', 'clients.id_township')
-                    ->select(
-                        'clients.id as id', 
-                        'clients.dpi as dpi',
-                        'people.name as name', 
-                        'people.last_name as last_name', 
-                        'people.age as age',
-                        'people.nit as nit',
-                        'people.address as address', 
-                        'people.department as department', 
-                        'people.township as township',
-                        'clients.status as status'
-                    )->get();
+        // $client = DB::table('clients')
+        //             ->where('clients.id', $id)
+        //             ->leftJoin('people', 'people.dpi', '=', 'clients.dpi')
+        //             ->
+        //             // ->leftJoin('addresses', 'addresses.id', '=', 'people.id_address')
+        //             //->leftJoin('departments', 'departments.id', '=', 'clients.id_department')
+        //             //->leftJoing('townships', 'townships.id', '=', 'clients.id_township')
+        //             ->select(
+        //                 'clients.id as id', 
+        //                 'clients.dpi as dpi',
+        //                 'people.name as name', 
+        //                 'people.last_name as last_name', 
+        //                 'people.age as age',
+        //                 'people.nit as nit',
+        //                 'people.address as address', 
+        //                 'people.department as department', 
+        //                 'people.township as township',
+        //                 //'clients.status as status'
+        //             )->get();
         
-        return $client;
+        // return $client;
+        $date = Carbon::now();
+        $clientSales = Client::where('clients.id','=',$id)
+                        ->leftJoin('sales', 'clients.id', '=', 'sales.id_client')
+                        ->count();
+        
+        $clientSalesLast30Days = Client::where('clients.id',$id)
+                                        ->leftJoin('sales', 'clients.id', '=', 'sales.id_client')
+                                        ->where('sales.created_at', '>=', $date->subdays(30))
+                                        ->count();
+        
+        $clientSalesLastYear = Client::where('clients.id',$id)
+                                        ->leftJoin('sales', 'clients.id', '=', 'sales.id_client')
+                                        ->whereYear('sales.created_at', $date->year - 1)->count();
+        
+        return response([
+            "total_sales" => $clientSales,
+            "total_last_30_days_sales" => $clientSalesLast30Days,
+            "total_last_year_sales" => $clientSalesLastYear
+        ], 200);
     }
 
     /**

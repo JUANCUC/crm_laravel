@@ -17,7 +17,7 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function report() {
+    public function report(Request $request) {
         // $sales = Sale::all();
         
         // foreach ($sales as $key => $sale) {
@@ -54,14 +54,29 @@ class ReportController extends Controller
         //     $sales[$key]['total_quantity'] = $detail_sale;
         //     //dd($sales);
         // }
+        $date = Carbon::now();
         $total_clients = Client::all()->count();
         //$LastMountClients = Client::all()->where('')
-        $last_30_days_clients = Client::where('created_at','>=',Carbon::now()->subdays(30))->count();
+        $last_30_days_clients = Client::where('created_at','>=', $date->subdays(30))->count();
         //$last_year_clients = Client::whereBetween('created_at', [date('Y', strtotime('-1 year')), Carbon::now()])->count();
         //dd(Carbon::now()->year-1);
-        $last_year_clients = Client::whereYear('created_at', Carbon::now()->year)->count();
+        $last_year_clients = Client::whereYear('created_at',$date->year - 1)->count();
         $total_sales = Sale::all()->count();
-        return $last_year_clients;
+        
+        $client_departments = Client::selectRaw('departments.name as name, count(clients.id) total')
+                                    //->select('departments.name', 'count(clients.id) total')
+                                    ->leftJoin('people', 'people.dpi', '=', 'clients.dpi')
+                                    ->leftJoin('departments','people.department','departments.name')
+                                    ->groupBy('departments.name')
+                                    ->get();
+
+        return response([
+            "clients" =>  $total_clients,
+            "sales" => $total_sales,
+            "last_30_days_clients" => $last_30_days_clients,
+            "last_year_clients" => $last_year_clients,
+            "departments" => $client_departments
+        ], 200);
     }
 
     /**

@@ -18,18 +18,27 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('register', 'UserController@register');
+//Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
 
 Route::group(['middleware' => ['jwt.verify']], function() {
-    Route::post('user','UserController@getAuthenticatedUser');
-    Route::resource('departments', 'DepartmentController')->only(['index']);
-    Route::resource('townships', 'TownshipController')->only(['index']);
-    Route::resource('products', 'ProductController')->only(['index','store', 'show']);
-    //Route::resource('people', 'PeopleController')->only(['store']);
-    Route::resource('clients', 'ClientController');
-    Route::resource('sales', 'SaleController');
-    Route::resource('detail-sales', 'DetailSaleController');
+    // Route::post('user','UserController@getAuthenticatedUser');
+    // Route::resource('departments', 'DepartmentController')->only(['index']);
+    // Route::resource('townships', 'TownshipController')->only(['index']);
+    // Route::resource('products', 'ProductController')->only(['index','store', 'show']);
+    // //Route::resource('people', 'PeopleController')->only(['store']);
+    // Route::resource('clients', 'ClientController');
+    // Route::resource('sales', 'SaleController');
+    // Route::resource('detail-sales', 'DetailSaleController');
 });
+
+Route::post('user','UserController@getAuthenticatedUser');
+Route::resource('departments', 'DepartmentController')->only(['index']);
+Route::resource('townships', 'TownshipController')->only(['index']);
+Route::resource('products', 'ProductController')->only(['index','store', 'show']);
+//Route::resource('people', 'PeopleController')->only(['store']);
+Route::resource('clients', 'ClientController');
+Route::resource('sales', 'SaleController');
+Route::resource('detail-sales', 'DetailSaleController');
 
 Route::get('reports', 'ReportController@report');
