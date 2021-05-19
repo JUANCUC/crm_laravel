@@ -30,15 +30,17 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     // Route::resource('clients', 'ClientController');
     // Route::resource('sales', 'SaleController');
     // Route::resource('detail-sales', 'DetailSaleController');
+    Route::post('user','UserController@getAuthenticatedUser');
+    Route::resource('departments', 'DepartmentController')->only(['index']);
+    Route::resource('townships', 'TownshipController')->only(['index','update']);
+    Route::resource('products', 'ProductController')->only(['index','store', 'show']);
+    //Route::resource('people', 'PeopleController')->only(['store']);
+    Route::resource('clients', 'ClientController');
+    Route::resource('sales', 'SaleController');
+    Route::resource('detail-sales', 'DetailSaleController');
+
+    Route::get('reports-general', 'ReportController@reportGeneral');
+    Route::get('reports-client/{id}', 'ReportController@reportClient');
 });
 
-Route::post('user','UserController@getAuthenticatedUser');
-Route::resource('departments', 'DepartmentController')->only(['index']);
-Route::resource('townships', 'TownshipController')->only(['index']);
-Route::resource('products', 'ProductController')->only(['index','store', 'show']);
-//Route::resource('people', 'PeopleController')->only(['store']);
-Route::resource('clients', 'ClientController');
-Route::resource('sales', 'SaleController');
-Route::resource('detail-sales', 'DetailSaleController');
 
-Route::get('reports', 'ReportController@report');

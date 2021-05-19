@@ -24,8 +24,8 @@ class ClientController extends Controller
                     ->where('status','A')
                     ->leftJoin('people', 'people.dpi', '=', 'clients.dpi')
                     //->leftJoin('addresses', 'addresses.id', '=', 'people.id_address')
-                    //->leftJoin('departments', 'departments.id', '=', 'clients.id_department')
-                    //->leftJoin('townships', 'townships.id', '=', 'clients.id_township')
+                    ->leftJoin('departments', 'departments.id', '=', 'people.id_department')
+                    ->leftJoin('townships', 'townships.id', '=', 'people.id_township')
                     ->select(
                         'clients.id as id', 
                         'clients.dpi as dpi',
@@ -34,8 +34,8 @@ class ClientController extends Controller
                         'people.age as age',
                         'people.nit as nit',
                         'people.address as address', 
-                        'people.department as department', 
-                        'people.township as township',
+                        'departments.name as department', 
+                        'townships.name as township',
                         //'clients.status as status'
                     )->get();
 
@@ -61,6 +61,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
         $validator = Validator::make($request->all(), [
             'dpi' => 'required|max:13',
             'name' => 'required|string',
@@ -68,8 +69,8 @@ class ClientController extends Controller
             'nit' => 'required|string|max:10',
             'age' => 'required|integer',
             'address' => 'required|string',
-            'department' => 'required|string',
-            'township' => 'required|string'
+            'department' => 'required|int',
+            'township' => 'required|int'
         ]);
 
         if($validator->fails()) {
@@ -85,8 +86,8 @@ class ClientController extends Controller
                 'nit' => $request->get('nit'),
                 'age' => $request->get('age'),
                 'address' => $request->get('address'),
-                'department' => $request->get('department'),
-                'township' => $request->get('township')
+                'id_department' => intval($request->get('department')),
+                'id_township' => intval($request->get('township'))
             ]);
 
             $client = Client::create([
@@ -102,8 +103,8 @@ class ClientController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             return response([
-                'messageError' => $th->getMessage()
-            ]);
+                'message' => $th->getMessage()
+            ], 400);
         }
     }
 
@@ -116,46 +117,28 @@ class ClientController extends Controller
     public function show($id)
     {
         //
-        // $client = DB::table('clients')
-        //             ->where('clients.id', $id)
-        //             ->leftJoin('people', 'people.dpi', '=', 'clients.dpi')
-        //             ->
-        //             // ->leftJoin('addresses', 'addresses.id', '=', 'people.id_address')
-        //             //->leftJoin('departments', 'departments.id', '=', 'clients.id_department')
-        //             //->leftJoing('townships', 'townships.id', '=', 'clients.id_township')
-        //             ->select(
-        //                 'clients.id as id', 
-        //                 'clients.dpi as dpi',
-        //                 'people.name as name', 
-        //                 'people.last_name as last_name', 
-        //                 'people.age as age',
-        //                 'people.nit as nit',
-        //                 'people.address as address', 
-        //                 'people.department as department', 
-        //                 'people.township as township',
-        //                 //'clients.status as status'
-        //             )->get();
+        $client = Client::where('clients.id', $id)
+                    ->leftJoin('people', 'people.dpi', '=', 'clients.dpi')
+                    //->leftJoin('addresses', 'addresses.id', '=', 'people.id_address')
+                    ->leftJoin('departments', 'departments.id', '=', 'people.id_department')
+                    ->leftJoin('townships', 'townships.id', '=', 'people.id_township')
+                    ->select(
+                        'clients.id as id', 
+                        'clients.dpi as dpi',
+                        'people.name as name', 
+                        'people.last_name as last_name', 
+                        'people.age as age',
+                        'people.nit as nit',
+                        'people.address as address', 
+                        'departments.name as department', 
+                        'townships.name as township',
+                        'departments.id as id_department',
+                        'townships.id as id_township',
+                        //'clients.status as status'
+                    )->get();
         
-        // return $client;
-        $date = Carbon::now();
-        $clientSales = Client::where('clients.id','=',$id)
-                        ->leftJoin('sales', 'clients.id', '=', 'sales.id_client')
-                        ->count();
+        return response($client[0],200);
         
-        $clientSalesLast30Days = Client::where('clients.id',$id)
-                                        ->leftJoin('sales', 'clients.id', '=', 'sales.id_client')
-                                        ->where('sales.created_at', '>=', $date->subdays(30))
-                                        ->count();
-        
-        $clientSalesLastYear = Client::where('clients.id',$id)
-                                        ->leftJoin('sales', 'clients.id', '=', 'sales.id_client')
-                                        ->whereYear('sales.created_at', $date->year - 1)->count();
-        
-        return response([
-            "total_sales" => $clientSales,
-            "total_last_30_days_sales" => $clientSalesLast30Days,
-            "total_last_year_sales" => $clientSalesLastYear
-        ], 200);
     }
 
     /**
@@ -186,8 +169,8 @@ class ClientController extends Controller
             'people.age' => $request->get('age'),
             'people.nit' => $request->get('nit'),
             'people.address' => $request->get('address'),
-            'people.department' => $request->get('department'),
-            'people.township' => $request->get('township'),
+            'people.id_department' => $request->get('department'),
+            'people.id_township' => $request->get('township'),
             //'clients.status' => $request->get('status')
         ];
 

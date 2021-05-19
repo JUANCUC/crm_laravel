@@ -15,7 +15,7 @@ class People extends Model
         'age',
         'nit',
         'address',
-        'department',
-        'township'
+        'id_department',
+        'id_township'
     ];
 }

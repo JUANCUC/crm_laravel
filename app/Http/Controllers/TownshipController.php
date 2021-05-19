@@ -14,15 +14,32 @@ class TownshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $departments = DB::table('townships')
-                            ->leftJoin('departments', 'townships.id_department', '=', 'departments.id')
-                            ->select('townships.id', 'townships.name', 'departments.id as id_department', 'departments.name as department')
+        if($request->get('department')) {
+            $townships = DB::table('townships')
+                            ->where('id_department',$request->get('department'))
+                            ->select('id','name')
+                            ->get();
+                            
+            return $townships;
+        }
+
+        $townships = DB::table('townships')
+                            //->leftJoin('departments', 'townships.id_department', '=', 'departments.id')
+                            ->select('id', 'name', ) //'departments.id as id_department', 'departments.name as department'
                             ->get();
 
-        return $departments;
+        return $townships;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function byDepartment (Request $request) {
+        
     }
 
     /**
@@ -116,6 +133,28 @@ class TownshipController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+        ]);
+
+        if($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        try {
+            //code...
+            $name = $request->get('name');
+            $township = Township::where('id', $id)
+                                ->update(['name' => $name]);
+
+            return response([
+                'message' => 'Municipio actualizado ',
+            ]);
+
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
     }
 
     /**

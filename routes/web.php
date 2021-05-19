@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', 'DashboardController@dashboard');
-Route::get('/search', 'SearchController@search');
+//Route::get('/dashboard', 'DashboardController@dashboard');
+// Route::get('/client', function () {
+//     return view('dashboard.dashboard');
+// });
 
+Route::get('/{path?}', function(){
+    return view( 'index' );
+} )->where('path', '.*');
 // Route::get('/clear-cache', function() {
 //     $exitCode = Artisan::call('config:clear');
 //     $exitCode = Artisan::call('cache:clear');

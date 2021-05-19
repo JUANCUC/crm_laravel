@@ -2,13 +2,13 @@
     width: calc(100% - 50px);
 }
 
-.card span {
+.results span {
     position: absolute;
     right: 1rem;
     top: 1rem;
 }
 
-.card span i {
+.results span i {
     font-size: 40px;
 }
 
