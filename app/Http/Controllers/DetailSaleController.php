@@ -56,42 +56,44 @@ class DetailSaleController extends Controller
         //                         'people.department', 
         //                         'people.township',
         //                     )->get();
-        $sales = Sale::all();
+        $sales = DetailsSale::leftJoin('sales', 'sales.id', '=', 'details_sales.id_sale')
+                            ->leftJoin('clients', 'clients.id', '=', 'sales.id_client')
+                            ->get();
         
-        foreach ($sales as $key => $sale) {
-            $id_sale = $sale->id;
-            $detail_sale = DetailsSale::all()->where('id_sale', $id_sale);
+        // foreach ($sales as $key => $sale) {
+        //     $id_sale = $sale->id;
+        //     $detail_sale = DetailsSale::all()->where('id_sale', $id_sale);
             
-            $amount = 0;
-            $quantity = 0;
+        //     $amount = 0;
+        //     $quantity = 0;
 
-            $other = array_filter(json_decode($detail_sale, true), function($key) {
-                //dd($value);
-                if(isset($key['amount'])) {
-                    return $key['amount'];
-                }
-            });
+        //     $other = array_filter(json_decode($detail_sale, true), function($key) {
+        //         //dd($value);
+        //         if(isset($key['amount'])) {
+        //             return $key['amount'];
+        //         }
+        //     });
 
-            dd($other);
-
-            //dd(json_decode($detail_sale, true));
-
-            foreach ($detail_sale as $key => $detail) {
-                # code...
-                foreach (json_decode($detail) as $key => $value) {
-                    # code...
-                    if($key == 'subtotal' || $key == 'quantity') {
-                        $amount += $value;
-                        $quantity += $value;
-                    }
-                }
-            }
             
-            $sales[$key]['details_sales'] = $detail_sale;
+
+        //     //dd(json_decode($detail_sale, true));
+
+        //     foreach ($detail_sale as $key => $detail) {
+        //         # code...
+        //         foreach (json_decode($detail) as $key => $value) {
+        //             # code...
+        //             if($key == 'subtotal' || $key == 'quantity') {
+        //                 $amount += $value;
+        //                 $quantity += $value;
+        //             }
+        //         }
+        //     }
             
-            $sales[$key]['total_quantity'] = $detail_sale;
-            //dd($sales);
-        }
+        //     $sales[$key]['details_sales'] = $detail_sale;
+            
+        //     $sales[$key]['total_quantity'] = $detail_sale;
+        //     //dd($sales);
+        // }
         
         return $sales;
     }
@@ -116,10 +118,12 @@ class DetailSaleController extends Controller
     {
         //
         $validator = Validator::make($request->all(), [
-            'id_sale' => 'required|integer',
-            'id_product' => 'required|integer',
-            'quantity' => 'required|integer',
-            'amount' => 'required',
+            'id_client' => 'required|integer',
+            'id_user' => 'required|integer',
+            'details_sales' => 'required',
+            //'id_product' => 'required|integer',
+            //'quantity' => 'required|integer',
+            //'amount' => 'required',
         ]);
 
         if($validator->fails()) {
@@ -128,21 +132,38 @@ class DetailSaleController extends Controller
 
         try {
 
-            $amount = $request->get('amount');
-            $quantity = $request->get('quantity');
-            $subtotal = $amount * $quantity;
-
-            $detail_sale = DetailsSale::create([
-                'id_sale' => $request->get('id_sale'),
-                'id_product' => $request->get('id_product'),
-                'quantity' => $request->get('quantity'),
-                'amount' => $request->get('amount'),
-                'subtotal' => $subtotal
+            $sale = Sale::create([
+                'id_client' => $request->get('id_client'),
+                'id_user' => $request->get('id_user'),
+                'total_quantity' => 0,
+                'total_amount' => 0
             ]);
             
+            $id_sale = $sale->id;
+            
+            foreach($request->get('details_sales') as $key => $detail) {
+               
+                $amount = $detail['amount'];
+                $quantity = $detail['quantity'];
+                $subtotal = $amount * $quantity;
+                
+                $detail_sale = DetailsSale::create([
+                    'id_sale' => $id_sale,
+                    'id_product' => $detail['id_product'],
+                    'quantity' => $quantity,
+                    'amount' => $amount,
+                    'subtotal' => $subtotal
+                ]);
+
+            }
+            
+            $sales = Sale::where('sales.id', $id_sale)
+                            ->leftJoin('details_sales', 'details_sales.id_sale', '=', 'sales.id')
+                            ->get();
+                       
             //dd($detail_sale);
 
-            return response($detail_sale, 200);
+            return response($sales, 200);
 
         } catch (\Throwable $th) {
             //throw $th;

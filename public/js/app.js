@@ -12525,7 +12525,7 @@ var Client = function Client() {
                   name: "dpi",
                   type: "text",
                   placeholder: "DPI",
-                  value: id ? dpi : '',
+                  value: id && dpi,
                   onChange: handleChange
                 }), errors.dpi && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Control.Feedback, {
                   type: "invalid",
@@ -12545,7 +12545,7 @@ var Client = function Client() {
                   name: "name",
                   type: "text",
                   placeholder: "Primer nombre",
-                  value: id ? name : '',
+                  value: id && name,
                   onChange: handleChange
                 }), errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Control.Feedback, {
                   type: "invalid",
@@ -12563,7 +12563,7 @@ var Client = function Client() {
                   name: "last_name",
                   type: "text",
                   placeholder: "Primer apellido",
-                  value: id ? last_name : '',
+                  value: id && last_name,
                   onChange: handleChange
                 }), errors.lastName && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Control.Feedback, {
                   type: "invalid",
@@ -12581,7 +12581,7 @@ var Client = function Client() {
                   name: "nit",
                   type: "text",
                   placeholder: "NIT",
-                  value: id ? nit : '',
+                  value: id && nit,
                   onChange: handleChange
                 }), errors.nit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Control.Feedback, {
                   type: "invalid",
@@ -12600,7 +12600,7 @@ var Client = function Client() {
                   type: "number",
                   placeholder: "Edad",
                   min: 1,
-                  value: id ? age : '',
+                  value: id && age,
                   onChange: handleChange
                 }), errors.age && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Control.Feedback, {
                   type: "invalid",
@@ -12619,7 +12619,7 @@ var Client = function Client() {
                   as: "select",
                   placeholder: "Guatemala",
                   onChange: changeDepartment,
-                  value: id ? department : department,
+                  value: id && department,
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                     value: "",
                     children: "Seleccione un departamento"
@@ -12645,7 +12645,7 @@ var Client = function Client() {
                   name: "township",
                   as: "select",
                   placeholder: "Guatemala",
-                  value: id ? township : '',
+                  value: id && township,
                   onChange: handleChange,
                   children: [townships.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                     value: "",
@@ -12672,7 +12672,7 @@ var Client = function Client() {
                   name: "address",
                   type: "text",
                   placeholder: "Zona 1",
-                  value: id ? address : '',
+                  value: id && address,
                   onChange: handleChange
                 }), errors.address && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Control.Feedback, {
                   type: "invalid",
@@ -13196,7 +13196,7 @@ var DashboardClient = function DashboardClient() {
               months = {
                 labels: labelMonth,
                 datasets: [{
-                  label: 'Ventas de los ultimos 30 dias',
+                  label: 'Ventas del ultimos año',
                   data: dataMonth,
                   backgroundColor: '#241663' //backgroundColor: '#fff',
 
@@ -13260,13 +13260,13 @@ var DashboardClient = function DashboardClient() {
         className: "mb-4 col-md-12 col-lg-4 text-white",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_GraphPie__WEBPACK_IMPORTED_MODULE_4__.GraphPie, {
           data: salesMonths,
-          title: "Ventas del a\xF1o"
+          title: "Ventas del ultimo a\xF1o"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "mb-4 col-md-12 col-lg-8 text-white",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Graph__WEBPACK_IMPORTED_MODULE_3__.Graph, {
           data: salesMonths,
-          title: "Ventas del a\xF1o"
+          title: "Ventas del ultimo a\xF1o"
         })
       })]
     })]
@@ -13509,6 +13509,9 @@ var Layout = function Layout() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: classes.toolbar
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_11__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_12__.default, {
+          style: {
+            height: '100%'
+          },
           children: [menu.map(function (el, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.NavLink, {
               to: el.route,
@@ -13525,8 +13528,9 @@ var Layout = function Layout() {
                 })]
               })
             }, index);
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_11__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
             to: "/logout",
+            className: "btn-logout",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_13__.default, {
               button: true,
               className: classes.btnMenu,
@@ -13539,7 +13543,7 @@ var Layout = function Layout() {
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_11__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Switch, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Switch, {
           children: [menu.map(function (route, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
               path: route.route,
@@ -31477,7 +31481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".title {\r\n    width: calc(100% - 50px);\r\n}\r\n\r\n.results span {\r\n    position: absolute;\r\n    right: 1rem;\r\n    top: 1rem;\r\n}\r\n\r\n.results span i {\r\n    font-size: 40px;\r\n}\r\n\r\n.icon {\r\n    width: 50px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".title {\r\n    width: calc(100% - 50px);\r\n}\r\n\r\n.results span {\r\n    position: absolute;\r\n    right: 1rem;\r\n    top: 1rem;\r\n}\r\n\r\n.results span i {\r\n    font-size: 40px;\r\n}\r\n\r\n.icon {\r\n    width: 50px;\r\n}\r\n\r\n.btn-logout {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

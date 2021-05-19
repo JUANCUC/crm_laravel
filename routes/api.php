@@ -43,4 +43,6 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('reports-client/{id}', 'ReportController@reportClient');
 });
 
-
+//Route::resource('sales', 'SaleController');
+//Route::resource('detail-sales', 'DetailSaleController');
+//Route::resource('products', 'ProductController')->only(['index','store', 'show']);

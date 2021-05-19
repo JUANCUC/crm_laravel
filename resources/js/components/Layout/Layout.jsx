@@ -113,7 +113,7 @@ export const Layout = () => {
 				>
 				<div className={classes.toolbar} ></div>
 				<Divider />
-				<List>
+				<List style={{height:'100%'}}>
 					{menu.map((el, index) => (
 						<NavLink to={el.route} key={index} activeClassName={classes.active}>
 							<ListItem button className={classes.btnMenu}>
@@ -122,14 +122,15 @@ export const Layout = () => {
 							</ListItem>
 						</NavLink>
 					))}
-					<Link to="/logout">
+					<Divider />
+					<Link to="/logout" className="btn-logout">
 						<ListItem button className={classes.btnMenu}>
 							<ListItemIcon><i className="fas fa-sign-out-alt"></i></ListItemIcon>
 							<ListItemText primary="Cerrar sesion" />
 						</ListItem>
 					</Link>
 				</List>
-				<Divider />
+				
 				<Switch>
 					{menu.map((route, index) => (
 						<Route

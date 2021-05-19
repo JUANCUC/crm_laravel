@@ -476,7 +476,7 @@ export const Client = () => {
 											name="dpi"
 											type="text" 
 											placeholder="DPI" 
-											value={id ? dpi : ''}
+											value={id && dpi}
 											onChange={handleChange}
 										/>
 										{errors.dpi && 
@@ -497,7 +497,7 @@ export const Client = () => {
 											name="name"
 											type="text" 
 											placeholder="Primer nombre" 
-											value={id ? name : ''}
+											value={id && name }
 											onChange={handleChange}
 										/>
 										{errors.name && 
@@ -516,7 +516,7 @@ export const Client = () => {
 											name="last_name"
 											type="text" 
 											placeholder="Primer apellido" 
-											value={id ? last_name : ''}
+											value={id && last_name }
 											onChange={handleChange}
 										/>
 										{errors.lastName && 
@@ -535,7 +535,7 @@ export const Client = () => {
 											name="nit"
 											type="text" 
 											placeholder="NIT" 
-											value={id ? nit : ''}
+											value={id && nit }
 											onChange={handleChange}
 										/>
 										{errors.nit && 
@@ -555,7 +555,7 @@ export const Client = () => {
 											type="number" 
 											placeholder="Edad" 
 											min={1} 
-											value={id ? age : ''}
+											value={id && age }
 											onChange={handleChange}
 										/>
 										{errors.age && 
@@ -576,7 +576,7 @@ export const Client = () => {
 											placeholder="Guatemala" 
 											
 											onChange={changeDepartment}
-											value={id ? department : department}
+											value={id && department }
 										>
 											<option value="">Seleccione un departamento</option>
 											{departments.map((el,index) => (
@@ -599,7 +599,7 @@ export const Client = () => {
 											name="township" 
 											as="select" 
 											placeholder="Guatemala" 
-											value={id ? township : ''}
+											value={id && township }
 											onChange={handleChange}
 										>
 											{townships.length && (<option value="">Seleccione un municipio</option>)}
@@ -623,7 +623,7 @@ export const Client = () => {
 											name="address" 
 											type="text" 
 											placeholder="Zona 1" 
-											value={id ? address : ''}
+											value={id && address}
 											onChange={handleChange}
 										/>
 										{errors.address && 

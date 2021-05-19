@@ -69,7 +69,7 @@ export const DashboardClient = () => {
                 labels: labelMonth,
                 datasets: [
                     {
-                        label: 'Ventas de los ultimos 30 dias',
+                        label: 'Ventas del ultimos año',
                         data: dataMonth,
                         backgroundColor: '#241663',
                         
@@ -108,10 +108,10 @@ export const DashboardClient = () => {
                 <GraphPie data={salesDays} title="Ventas en los ultimos 30 dias" />
             </div>
             <div className="mb-4 col-md-12 col-lg-4 text-white">
-                <GraphPie data={salesMonths} title="Ventas del año" />
+                <GraphPie data={salesMonths} title="Ventas del ultimo año" />
             </div>
             <div className="mb-4 col-md-12 col-lg-8 text-white">
-                <Graph data={salesMonths} title="Ventas del año" />
+                <Graph data={salesMonths} title="Ventas del ultimo año" />
             </div>
         </div>
         </>
