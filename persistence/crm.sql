@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2021 a las 10:32:00
+-- Tiempo de generación: 20-05-2021 a las 03:26:19
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -55,7 +55,11 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `dpi`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1234567891203, 'A', '2021-05-09 12:40:51', '2021-05-09 12:40:51');
+(1, 1234567891203, 'A', '2021-05-09 18:40:51', '2021-05-09 18:40:51'),
+(2, 1234567891204, 'A', '2021-05-17 06:53:48', '2021-05-17 06:53:48'),
+(3, 1234567891205, 'A', '2021-05-19 03:21:31', '2021-05-19 03:21:31'),
+(4, 1234567891206, 'A', '2021-05-19 03:29:59', '2021-05-19 03:29:59'),
+(5, 1234567891207, 'A', '2021-05-19 08:40:57', '2021-05-19 08:40:57');
 
 -- --------------------------------------------------------
 
@@ -75,28 +79,28 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(2, 'Alta Verapaz', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(3, 'Baja Verapaz', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(4, 'Chimaltenago', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(5, 'Chiquimula', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(6, 'Guatemala', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(7, 'El Progreso', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(8, 'Escuintla', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(9, 'Huehuetenango', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(10, 'Izabal', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(11, 'Jalapa', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(12, 'Jutiapa', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(13, 'Petén', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(14, 'Quetzaltenango', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(15, 'Quiché', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(16, 'Retalhuleu', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(17, 'Sacatepequez', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(18, 'San Marcos', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(19, 'Santa Rosa', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(20, 'Sololá', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(21, 'Suchitepequez', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(22, 'Totonicapán', '2021-05-09 09:27:15', '2021-05-09 09:27:15'),
-(23, 'Zacapa', '2021-05-09 09:27:15', '2021-05-09 09:27:15');
+(2, 'Alta Verapaz', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(3, 'Baja Verapaz', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(4, 'Chimaltenago', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(5, 'Chiquimula', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(6, 'Guatemala', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(7, 'El Progreso', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(8, 'Escuintla', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(9, 'Huehuetenango', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(10, 'Izabal', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(11, 'Jalapa', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(12, 'Jutiapa', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(13, 'Petén', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(14, 'Quetzaltenango', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(15, 'Quiché', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(16, 'Retalhuleu', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(17, 'Sacatepequez', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(18, 'San Marcos', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(19, 'Santa Rosa', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(20, 'Sololá', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(21, 'Suchitepequez', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(22, 'Totonicapán', '2021-05-09 15:27:15', '2021-05-09 15:27:15'),
+(23, 'Zacapa', '2021-05-09 15:27:15', '2021-05-09 15:27:15');
 
 -- --------------------------------------------------------
 
@@ -120,8 +124,18 @@ CREATE TABLE `details_sales` (
 --
 
 INSERT INTO `details_sales` (`id`, `id_sale`, `id_product`, `quantity`, `amount`, `subtotal`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 2, 179.00, 358.00, '2021-05-09 13:46:52', '2021-05-09 13:46:52'),
-(2, 2, 1, 3, 179.00, 537.00, '2021-05-09 14:03:51', '2021-05-09 14:03:51');
+(1, 1, 1, 2, 179.00, 358.00, '2021-05-09 19:46:52', '2021-05-09 19:46:52'),
+(2, 2, 1, 3, 179.00, 537.00, '2021-05-09 20:03:51', '2021-05-09 20:03:51'),
+(3, 3, 2, 3, 149.00, 447.00, '2021-05-19 14:27:41', '2021-05-19 14:27:41'),
+(4, 4, 3, 2, 199.00, 398.00, '2021-05-19 14:33:19', '2021-05-19 14:33:19'),
+(5, 5, 4, 2, 144.00, 288.00, '2021-05-19 14:37:57', '2021-05-19 14:37:57'),
+(6, 8, 3, 2, 199.00, 398.00, '2021-05-19 14:51:20', '2021-05-19 14:51:20'),
+(7, 8, 1, 2, 179.00, 358.00, '2021-05-19 14:51:20', '2021-05-19 14:51:20'),
+(8, 9, 3, 2, 199.00, 398.00, '2021-05-19 14:51:30', '2021-05-19 14:51:30'),
+(9, 9, 1, 2, 179.00, 358.00, '2021-05-19 14:51:30', '2021-05-19 14:51:30'),
+(10, 10, 3, 2, 199.00, 398.00, '2021-05-19 14:53:03', '2021-05-19 14:53:03'),
+(11, 10, 1, 2, 179.00, 358.00, '2021-05-19 14:53:03', '2021-05-19 14:53:03'),
+(12, 10, 5, 2, 179.00, 358.00, '2021-05-19 14:53:03', '2021-05-19 14:53:03');
 
 -- --------------------------------------------------------
 
@@ -164,18 +178,19 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (158, '2021_05_09_003406_add_status_to_clients', 5),
 (159, '2021_05_09_011358_add_age_to_people', 6),
 (170, '2021_05_08_201302_create_detail_sales_table', 7),
-(174, '2014_10_12_000000_create_users_table', 8),
-(175, '2014_10_12_100000_create_password_resets_table', 8),
-(176, '2019_08_19_000000_create_failed_jobs_table', 8),
-(177, '2021_05_08_200726_create_departments_table', 8),
-(178, '2021_05_08_200756_create_townships_table', 8),
-(179, '2021_05_08_200821_create_addresses_table', 8),
-(180, '2021_05_08_200902_create_products_table', 8),
-(181, '2021_05_08_201002_create_rols_table', 8),
-(182, '2021_05_08_201033_create_people_table', 8),
-(183, '2021_05_08_201055_create_clients_table', 8),
-(184, '2021_05_08_201439_create_sales_table', 8),
-(185, '2021_05_09_062024_create_detaisl_sales_table', 8);
+(185, '2021_05_09_062024_create_detaisl_sales_table', 8),
+(186, '2014_10_12_000000_create_users_table', 9),
+(187, '2014_10_12_100000_create_password_resets_table', 9),
+(188, '2019_08_19_000000_create_failed_jobs_table', 9),
+(189, '2021_05_08_200726_create_departments_table', 9),
+(190, '2021_05_08_200756_create_townships_table', 9),
+(191, '2021_05_08_200821_create_addresses_table', 9),
+(192, '2021_05_08_200902_create_products_table', 9),
+(193, '2021_05_08_201002_create_rols_table', 9),
+(194, '2021_05_08_201033_create_people_table', 9),
+(195, '2021_05_08_201055_create_clients_table', 9),
+(196, '2021_05_08_201439_create_sales_table', 9),
+(197, '2021_05_09_062024_create_details_sales_table', 9);
 
 -- --------------------------------------------------------
 
@@ -202,8 +217,8 @@ CREATE TABLE `people` (
   `nit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `age` int(11) NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `department` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `township` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_department` bigint(20) UNSIGNED NOT NULL,
+  `id_township` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -212,8 +227,12 @@ CREATE TABLE `people` (
 -- Volcado de datos para la tabla `people`
 --
 
-INSERT INTO `people` (`dpi`, `name`, `last_name`, `nit`, `age`, `address`, `department`, `township`, `created_at`, `updated_at`) VALUES
-(1234567891203, 'Patrcik', 'Castro', '123456-7', 25, 'Zona 10 3ra. av.', 'San marcos', 'San Marcos', '2021-05-09 12:40:51', '2021-05-09 12:40:51');
+INSERT INTO `people` (`dpi`, `name`, `last_name`, `nit`, `age`, `address`, `id_department`, `id_township`, `created_at`, `updated_at`) VALUES
+(1234567891203, 'Patick', 'Castro', '123456-8', 23, 'Zona 10 3ra. av.', 18, 134, '2021-05-09 18:40:51', '2021-05-09 18:40:51'),
+(1234567891204, 'Juan', 'Cuc!', '123456-8', 25, 'Zona 10 3ra. av.', 14, 98, '2021-05-17 06:53:48', '2021-05-17 06:53:48'),
+(1234567891205, 'Branly', 'Lopez', '12345678', 25, 'Zona 10', 14, 104, '2021-05-19 03:21:31', '2021-05-19 03:21:31'),
+(1234567891206, 'Danilo', 'Sarat', '12345678', 23, 'Zona 1', 15, 108, '2021-05-19 03:29:59', '2021-05-19 03:29:59'),
+(1234567891207, 'John', 'Doe', '12345679', 27, 'Zona 10', 18, 133, '2021-05-19 08:40:57', '2021-05-19 08:40:57');
 
 -- --------------------------------------------------------
 
@@ -235,26 +254,26 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Playera Rosa It Girl con Detalle de Aretes', 179.00, 'stilo casual  con terminacion de lettuce, de manga normal y largo hasta la linea del pantalon, hecho 95% rayon 5% spandex el diseño que puedes usar cualquier dia!', '2021-05-09 11:10:18', '2021-05-09 11:10:18'),
-(2, 'Crop Top con Zipper Rojo y Azul', 149.00, 'Crop top con zipper color rojo y azul, hecho en 60% Algodon 35% Poliester y 5% Spandex, el diseño casual que te permite usarlo siempre!', '2021-05-09 11:10:18', '2021-05-09 11:10:18'),
-(3, 'Top Largo Negro de Manga corta', 199.00, 'perfecta para usar super casual en cualquier dia o con cualquier combinacion que te vaya, hecho en 60% Algodon 35% Poliester y 5% Spandex, el diseño que puedes usar cualquier dia! ', '2021-05-09 11:10:18', '2021-05-09 11:10:18'),
-(4, 'Playera Beisbolera Grafica', 134.00, 'Estilo casual  con terminacion de lettuce, de manga normal y largo hasta la linea del pantalon, hecho 95% rayon 5% spandex el diseño que puedes usar cualquier dia!', '2021-05-09 11:10:18', '2021-05-09 11:10:18'),
-(5, 'Beisbolera Cuerpo Rojo Mangas Azules', 179.00, 'Beisbolera Cuerpo Rojo Mangas Azules es perfecta para usar super casual en cualquier dia o con cualquier combinacion que te vaya, hecho en 60% Algodon 35% Poliester y 5% Spandex,', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(6, 'Playera Casual Cuello Redondo Mostaza', 127.00, 'Playera diseñada para un look casual con cuello redondo en color blanco para contraste y largo hasta la linea del pantalon, hecho en 95% Rayon y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(7, 'Playera Girl Tie DYE Gris', 139.00, 'Diseño premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(8, 'Playera Casual Cuello Redondo Verde', 127.00, 'Diseñada para un look casual con cuello redondo en color blanco para contraste y largo hasta la linea del pantalon, hecho en 95% Rayon y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(9, 'Crop Top de Tirantes al Cuello Arcoiris', 117.00, 'Crop Top de tirantes al cuello arcoiris su diseño fresco te hara resaltar! Hecho en 60% Algodon 35% Poliester y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(10, 'Playera Casual Cuello Redondo Blanca', 117.00, 'Playera diseñada para un look casual con cuello redondo en color blanco para contraste y largo hasta la linea del pantalon, hecho en 95% Rayon y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(11, 'Sudadero CamStyle Street', 299.00, 'El look de calle perfecto libre como vos y lo que representa el camuflage y tu estilo rebelde!', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(12, 'Sudadero Buch Street Negro', 299.00, 'El look de calle perfecto diseñado en algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, ', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(13, 'Sudadero Naranja Dinosaurio Mágico', 299.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(14, 'Sudadero con Capucha Negro NR Fush', 299.00, 'Diseñado con algodon y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(15, 'Sudadero Team Dark', 317.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(16, 'Sudadero Dresscode502 Slang Amarillo y Negro', 299.00, 'Estilo exclusivo diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(17, 'Beisbolera con Zipper Rojo con Blanco', 330.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(18, 'Sudadero Dresscode502 Slang Azul y Crema', 299.00, 'Estilo exclusivo diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(19, 'Sudadero Command', 249.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19'),
-(20, 'Sudadero Assassins Creed Azul', 360.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 11:10:19', '2021-05-09 11:10:19');
+(1, 'Playera Rosa It Girl con Detalle de Aretes', 179.00, 'stilo casual  con terminacion de lettuce, de manga normal y largo hasta la linea del pantalon, hecho 95% rayon 5% spandex el diseño que puedes usar cualquier dia!', '2021-05-09 17:10:18', '2021-05-09 17:10:18'),
+(2, 'Crop Top con Zipper Rojo y Azul', 149.00, 'Crop top con zipper color rojo y azul, hecho en 60% Algodon 35% Poliester y 5% Spandex, el diseño casual que te permite usarlo siempre!', '2021-05-09 17:10:18', '2021-05-09 17:10:18'),
+(3, 'Top Largo Negro de Manga corta', 199.00, 'perfecta para usar super casual en cualquier dia o con cualquier combinacion que te vaya, hecho en 60% Algodon 35% Poliester y 5% Spandex, el diseño que puedes usar cualquier dia! ', '2021-05-09 17:10:18', '2021-05-09 17:10:18'),
+(4, 'Playera Beisbolera Grafica', 134.00, 'Estilo casual  con terminacion de lettuce, de manga normal y largo hasta la linea del pantalon, hecho 95% rayon 5% spandex el diseño que puedes usar cualquier dia!', '2021-05-09 17:10:18', '2021-05-09 17:10:18'),
+(5, 'Beisbolera Cuerpo Rojo Mangas Azules', 179.00, 'Beisbolera Cuerpo Rojo Mangas Azules es perfecta para usar super casual en cualquier dia o con cualquier combinacion que te vaya, hecho en 60% Algodon 35% Poliester y 5% Spandex,', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(6, 'Playera Casual Cuello Redondo Mostaza', 127.00, 'Playera diseñada para un look casual con cuello redondo en color blanco para contraste y largo hasta la linea del pantalon, hecho en 95% Rayon y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(7, 'Playera Girl Tie DYE Gris', 139.00, 'Diseño premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(8, 'Playera Casual Cuello Redondo Verde', 127.00, 'Diseñada para un look casual con cuello redondo en color blanco para contraste y largo hasta la linea del pantalon, hecho en 95% Rayon y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(9, 'Crop Top de Tirantes al Cuello Arcoiris', 117.00, 'Crop Top de tirantes al cuello arcoiris su diseño fresco te hara resaltar! Hecho en 60% Algodon 35% Poliester y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(10, 'Playera Casual Cuello Redondo Blanca', 117.00, 'Playera diseñada para un look casual con cuello redondo en color blanco para contraste y largo hasta la linea del pantalon, hecho en 95% Rayon y 5% Spandex, el diseño que puedes usar cualquier dia!', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(11, 'Sudadero CamStyle Street', 299.00, 'El look de calle perfecto libre como vos y lo que representa el camuflage y tu estilo rebelde!', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(12, 'Sudadero Buch Street Negro', 299.00, 'El look de calle perfecto diseñado en algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, ', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(13, 'Sudadero Naranja Dinosaurio Mágico', 299.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(14, 'Sudadero con Capucha Negro NR Fush', 299.00, 'Diseñado con algodon y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(15, 'Sudadero Team Dark', 317.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(16, 'Sudadero Dresscode502 Slang Amarillo y Negro', 299.00, 'Estilo exclusivo diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(17, 'Beisbolera con Zipper Rojo con Blanco', 330.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(18, 'Sudadero Dresscode502 Slang Azul y Crema', 299.00, 'Estilo exclusivo diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(19, 'Sudadero Command', 249.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19'),
+(20, 'Sudadero Assassins Creed Azul', 360.00, 'Diseñado con algodon pesado y poliester premium para verdadera comodidad y talle asi tambien con detalles acabados a mano, para asegurarnos la mayor calidad en tu prenda.', '2021-05-09 17:10:19', '2021-05-09 17:10:19');
 
 -- --------------------------------------------------------
 
@@ -290,8 +309,16 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `id_client`, `id_user`, `total_quantity`, `total_amount`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 0, 0.00, '2021-05-09 12:57:01', '2021-05-09 12:57:01'),
-(2, 1, 1, 0, 0.00, '2021-05-09 14:03:22', '2021-05-09 14:03:22');
+(1, 1, 1, 0, 0.00, '2021-05-09 18:57:01', '2021-05-09 18:57:01'),
+(2, 1, 1, 0, 0.00, '2021-05-09 20:03:22', '2021-05-09 20:03:22'),
+(3, 2, 1, 0, 0.00, '2021-05-19 14:15:39', '2021-05-19 14:15:39'),
+(4, 2, 1, 0, 0.00, '2021-05-19 14:32:06', '2021-05-19 14:32:06'),
+(5, 3, 1, 0, 0.00, '2021-05-19 14:36:26', '2021-05-19 14:36:26'),
+(6, 4, 1, 0, 0.00, '2021-05-19 14:50:13', '2021-05-19 14:50:13'),
+(7, 4, 1, 0, 0.00, '2021-05-19 14:50:58', '2021-05-19 14:50:58'),
+(8, 4, 1, 0, 0.00, '2021-05-19 14:51:20', '2021-05-19 14:51:20'),
+(9, 4, 1, 0, 0.00, '2021-05-19 14:51:30', '2021-05-19 14:51:30'),
+(10, 5, 1, 0, 0.00, '2021-05-19 14:53:03', '2021-05-19 14:53:03');
 
 -- --------------------------------------------------------
 
@@ -312,147 +339,147 @@ CREATE TABLE `townships` (
 --
 
 INSERT INTO `townships` (`id`, `id_department`, `name`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Coban', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(2, 2, 'Santa Cruz Verapaz', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(3, 2, 'San Cristobal Verapaz', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(4, 2, 'Tactic', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(5, 2, 'Tamahu', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(6, 2, 'San Migel Tucuru', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(7, 2, 'Panzos', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(8, 2, 'Senahu', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(9, 2, 'San Pedro Carcha', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(10, 3, 'Salama', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(11, 3, 'San Miguel Chicaj', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(12, 3, 'Cubulco', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(13, 3, 'Granados', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(14, 3, 'Santa Cruz el Chol', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(15, 3, 'San Jeronimo', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(16, 3, 'Purulaha', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(17, 4, 'Chimaltenango', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(18, 4, 'San jose Poaquil', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(19, 4, 'San Martin Jilotepeque', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(20, 4, 'Tecpan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(21, 4, 'Patzun', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(22, 4, 'San Miguel Pochuta', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(23, 4, 'Patzicia', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(24, 4, 'Acatenango', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(25, 4, 'San pedro Yepocapa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(26, 5, 'Chiquimulilla', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(27, 5, 'Jocotan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(28, 5, 'Camotan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(29, 5, 'Quetzaltepeque', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(30, 5, 'Olopa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(31, 5, 'Ipala', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(32, 5, 'San Juan Hermita', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(33, 5, 'Concepcipion las Minas', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(34, 5, 'San jacinto', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(35, 6, 'Santa Catarina Pinula', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(36, 6, 'Guatemala', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(37, 6, 'San Jose del Golfo', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(38, 6, 'Palencia', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(39, 6, 'Chinautla', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(40, 6, 'San Pedroayampuc', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(41, 6, 'Mixco', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(42, 6, 'San pedro Sactepeques', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(43, 6, 'San Raymundo', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(44, 7, 'El Jicaro', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(45, 7, 'Morazan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(46, 7, 'San Agustin acasaguaztlan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(47, 7, 'Sanarate', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(48, 7, 'Guastatoya', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(49, 7, 'Sansare', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(50, 8, 'Escuintla', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(51, 8, 'Santa Lucia Cotzumalguapa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(52, 8, 'La Democracia', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(53, 8, 'Siquinala', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(54, 8, 'Masagua', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(55, 8, 'Tiquisate', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(56, 8, 'La Gomera', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(57, 8, 'San Jose', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(58, 8, 'Iztapa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(59, 9, 'Huehuetenango', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(60, 9, 'Chiantla', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(61, 9, 'Malacantancito', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(62, 9, 'Cuilco', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(63, 9, 'Soloma', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(64, 9, 'la libertad', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(65, 9, 'La democracia', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(66, 9, 'San Miguel acatan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(67, 9, 'Todos los santos cuchumatanes', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(68, 10, 'Moralez', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(69, 10, 'Los amantes', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(70, 10, 'Livingston', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(71, 10, 'el estor', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(72, 10, 'Puerto Barrios', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(73, 11, 'Jalapa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(74, 11, 'San pedro pinula', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(75, 11, 'San luiz Jilotepeque', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(76, 11, 'San manuel Chaparron', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(77, 11, 'Monjas', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(78, 11, 'Mataquescuintla', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(79, 11, 'San carlos alzatate', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(80, 12, 'Jutiapa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(81, 12, 'Santa Catarina Mita', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(82, 12, 'yupiletepeque', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(83, 12, 'Jerez', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(84, 12, 'el adelanto', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(85, 12, 'Zapotitlan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(86, 12, 'Comapa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(87, 12, 'Agua Blanca', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(88, 12, 'Jalpatagua', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(89, 13, 'Flores', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(90, 13, 'San jose', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(91, 13, 'San Benito', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(92, 13, 'La Libertad', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(93, 13, 'Santa ana', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(94, 13, 'Dolores', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(95, 13, 'Sayaxche', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(96, 13, 'Melchor de mencos', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(97, 13, 'Poptun', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(98, 14, 'Quetzaltenengo', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(99, 14, 'San Juan Olintepeque', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(100, 14, 'San Carlos Sija', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(101, 14, 'Sibilia', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(102, 14, 'Cabrican', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(103, 14, 'San Mateo', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(104, 14, 'Coatepeque', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(105, 14, 'Almolonga', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(106, 14, 'La ezperanza', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(107, 15, 'Santa Cruz del quiche', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(108, 15, 'Chiche', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(109, 15, 'Chajul', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(110, 15, 'Patzite', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(111, 15, 'cunen', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(112, 15, 'san juan cotzal', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(113, 15, 'zacualpa', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(114, 15, 'san pedro jocopilaz', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(115, 15, 'Scapula', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(116, 16, 'Retalhuleu', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(117, 16, 'Santa Cruz Mulua', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(118, 16, 'San Martin Zapotitlan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(119, 16, 'San Felipe', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(120, 16, 'San Andres Villa Seca', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(121, 16, 'Champerico', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(122, 16, 'Nuevo San Carlos', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(123, 16, 'El Asintal', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(124, 17, 'Antigua Guatemala', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(125, 17, 'Jocotenango', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(126, 17, 'San Bartolome milpas altas', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(127, 17, 'Sumpango', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(128, 17, 'Magadalena Milpas altas', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(129, 17, 'San Miguel Dueñas', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(130, 17, 'Ciudad Vieja', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(131, 17, 'San juan alotenango', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(132, 17, 'santa maria de jesus', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(133, 18, 'San marcos', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(134, 18, 'Ayutla', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(135, 18, 'Catarina', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(136, 18, 'Comitancillo', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(137, 18, 'El Quetzal', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(138, 18, 'El Rodeo', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(139, 18, 'Malacatan', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(140, 18, 'Pajapita', '2021-05-09 11:38:31', '2021-05-09 11:38:31'),
-(141, 18, 'Ocos', '2021-05-09 11:38:31', '2021-05-09 11:38:31');
+(1, 2, 'Quetzaltenango', '2021-05-09 17:38:31', '2021-05-19 00:45:22'),
+(2, 2, 'Santa Cruz Verapaz', '2021-05-09 17:38:31', '2021-05-19 00:54:11'),
+(3, 2, 'San Cristobal Verapaz', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(4, 2, 'Tactic', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(5, 2, 'Tamahu', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(6, 2, 'San Migel Tucuru', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(7, 2, 'Panzos', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(8, 2, 'Senahu', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(9, 2, 'San Pedro Carcha', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(10, 3, 'Salama', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(11, 3, 'San Miguel Chicaj', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(12, 3, 'Cubulco', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(13, 3, 'Granados', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(14, 3, 'Santa Cruz el Chol', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(15, 3, 'San Jeronimo', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(16, 3, 'Purulaha', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(17, 4, 'Chimaltenango', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(18, 4, 'San jose Poaquil', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(19, 4, 'San Martin Jilotepeque', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(20, 4, 'Tecpan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(21, 4, 'Patzun', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(22, 4, 'San Miguel Pochuta', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(23, 4, 'Patzicia', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(24, 4, 'Acatenango', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(25, 4, 'San pedro Yepocapa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(26, 5, 'Chiquimulilla', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(27, 5, 'Jocotan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(28, 5, 'Camotan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(29, 5, 'Quetzaltepeque', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(30, 5, 'Olopa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(31, 5, 'Ipala', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(32, 5, 'San Juan Hermita', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(33, 5, 'Concepcipion las Minas', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(34, 5, 'San jacinto', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(35, 6, 'Santa Catarina Pinula', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(36, 6, 'Guatemala', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(37, 6, 'San Jose del Golfo', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(38, 6, 'Palencia', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(39, 6, 'Chinautla', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(40, 6, 'San Pedroayampuc', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(41, 6, 'Mixco', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(42, 6, 'San pedro Sactepeques', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(43, 6, 'San Raymundo', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(44, 7, 'El Jicaro', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(45, 7, 'Morazan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(46, 7, 'San Agustin acasaguaztlan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(47, 7, 'Sanarate', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(48, 7, 'Guastatoya', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(49, 7, 'Sansare', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(50, 8, 'Escuintla', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(51, 8, 'Santa Lucia Cotzumalguapa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(52, 8, 'La Democracia', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(53, 8, 'Siquinala', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(54, 8, 'Masagua', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(55, 8, 'Tiquisate', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(56, 8, 'La Gomera', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(57, 8, 'San Jose', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(58, 8, 'Iztapa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(59, 9, 'Huehuetenango', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(60, 9, 'Chiantla', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(61, 9, 'Malacantancito', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(62, 9, 'Cuilco', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(63, 9, 'Soloma', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(64, 9, 'la libertad', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(65, 9, 'La democracia', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(66, 9, 'San Miguel acatan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(67, 9, 'Todos los santos cuchumatanes', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(68, 10, 'Moralez', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(69, 10, 'Los amantes', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(70, 10, 'Livingston', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(71, 10, 'el estor', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(72, 10, 'Puerto Barrios', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(73, 11, 'Jalapa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(74, 11, 'San pedro pinula', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(75, 11, 'San luiz Jilotepeque', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(76, 11, 'San manuel Chaparron', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(77, 11, 'Monjas', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(78, 11, 'Mataquescuintla', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(79, 11, 'San carlos alzatate', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(80, 12, 'Jutiapa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(81, 12, 'Santa Catarina Mita', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(82, 12, 'yupiletepeque', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(83, 12, 'Jerez', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(84, 12, 'el adelanto', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(85, 12, 'Zapotitlan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(86, 12, 'Comapa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(87, 12, 'Agua Blanca', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(88, 12, 'Jalpatagua', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(89, 13, 'Flores', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(90, 13, 'San jose', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(91, 13, 'San Benito', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(92, 13, 'La Libertad', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(93, 13, 'Santa ana', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(94, 13, 'Dolores', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(95, 13, 'Sayaxche', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(96, 13, 'Melchor de mencos', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(97, 13, 'Poptun', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(98, 14, 'Quetzaltenengo', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(99, 14, 'San Juan Olintepeque', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(100, 14, 'San Carlos Sija', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(101, 14, 'Sibilia', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(102, 14, 'Cabrican', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(103, 14, 'San Mateo', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(104, 14, 'Coatepeque', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(105, 14, 'Almolonga', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(106, 14, 'La ezperanza', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(107, 15, 'Santa Cruz del quiche', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(108, 15, 'Chiche', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(109, 15, 'Chajul', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(110, 15, 'Patzite', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(111, 15, 'cunen', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(112, 15, 'san juan cotzal', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(113, 15, 'zacualpa', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(114, 15, 'san pedro jocopilaz', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(115, 15, 'Scapula', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(116, 16, 'Retalhuleu', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(117, 16, 'Santa Cruz Mulua', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(118, 16, 'San Martin Zapotitlan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(119, 16, 'San Felipe', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(120, 16, 'San Andres Villa Seca', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(121, 16, 'Champerico', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(122, 16, 'Nuevo San Carlos', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(123, 16, 'El Asintal', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(124, 17, 'Antigua Guatemala', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(125, 17, 'Jocotenango', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(126, 17, 'San Bartolome milpas altas', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(127, 17, 'Sumpango', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(128, 17, 'Magadalena Milpas altas', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(129, 17, 'San Miguel Dueñas', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(130, 17, 'Ciudad Vieja', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(131, 17, 'San juan alotenango', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(132, 17, 'santa maria de jesus', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(133, 18, 'San marcos', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(134, 18, 'Ayutla', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(135, 18, 'Catarina', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(136, 18, 'Comitancillo', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(137, 18, 'El Quetzal', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(138, 18, 'El Rodeo', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(139, 18, 'Malacatan', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(140, 18, 'Pajapita', '2021-05-09 17:38:31', '2021-05-09 17:38:31'),
+(141, 18, 'Ocos', '2021-05-09 17:38:31', '2021-05-09 17:38:31');
 
 -- --------------------------------------------------------
 
@@ -476,7 +503,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@mail.com', NULL, '$2y$10$XP3s9J0UQUwoHYPEfLzwvOXQSEDQpFqLkIPlRDG347TD7h7ftg2jq', NULL, '2021-05-09 12:36:43', '2021-05-09 12:36:43');
+(1, 'admin', 'admin@mail.com', NULL, '$2y$10$dnqBX5/SgMtbZEs4Yl8eeOdq2xuCAKxQrtBYqLSw1cr1y8PXcy/56', NULL, '2021-05-09 14:40:11', '2021-05-09 14:40:11');
 
 --
 -- Índices para tablas volcadas
@@ -508,8 +535,8 @@ ALTER TABLE `departments`
 --
 ALTER TABLE `details_sales`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `detaisl_sales_id_sale_foreign` (`id_sale`),
-  ADD KEY `detaisl_sales_id_product_foreign` (`id_product`);
+  ADD KEY `details_sales_id_sale_foreign` (`id_sale`),
+  ADD KEY `details_sales_id_product_foreign` (`id_product`);
 
 --
 -- Indices de la tabla `failed_jobs`
@@ -534,7 +561,9 @@ ALTER TABLE `password_resets`
 -- Indices de la tabla `people`
 --
 ALTER TABLE `people`
-  ADD UNIQUE KEY `people_dpi_unique` (`dpi`);
+  ADD UNIQUE KEY `people_dpi_unique` (`dpi`),
+  ADD KEY `people_id_township_foreign` (`id_township`) USING BTREE,
+  ADD KEY `people_id_department_foreign` (`id_department`) USING BTREE;
 
 --
 -- Indices de la tabla `products`
@@ -584,7 +613,7 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT de la tabla `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `departments`
@@ -596,7 +625,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT de la tabla `details_sales`
 --
 ALTER TABLE `details_sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -608,7 +637,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
@@ -626,7 +655,7 @@ ALTER TABLE `rols`
 -- AUTO_INCREMENT de la tabla `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `townships`
@@ -661,8 +690,8 @@ ALTER TABLE `clients`
 -- Filtros para la tabla `details_sales`
 --
 ALTER TABLE `details_sales`
-  ADD CONSTRAINT `detaisl_sales_id_product_foreign` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `detaisl_sales_id_sale_foreign` FOREIGN KEY (`id_sale`) REFERENCES `sales` (`id`);
+  ADD CONSTRAINT `details_sales_id_product_foreign` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `details_sales_id_sale_foreign` FOREIGN KEY (`id_sale`) REFERENCES `sales` (`id`);
 
 --
 -- Filtros para la tabla `sales`
