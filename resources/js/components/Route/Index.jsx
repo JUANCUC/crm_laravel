@@ -40,6 +40,7 @@ const RouteLogin = (props) => (
 )
 
 const Logout = () => {
+    console.log('logout')
     deleteToken()
     return <Redirect to="/" />
 }
@@ -48,12 +49,13 @@ const Logout = () => {
 export const Index = () => (
     <Router>
         <Switch>
-            <Route path="/" exact component={Login} />
+            <RouteLogin path="/login" exact component={Login} />
             <MyRoute path="/dashboard" exact  component={Layout}  />
             <MyRoute path="/clientes" exact  component={Layout}  />
-            <MyRoute path="/clientes/reportes" exact  component={Layout}  />
+            <MyRoute path="/clientes/reportes/:id" exact  component={Layout}  />
             <MyRoute path="/About" exact  component={Layout}  />
-            <Route to="/logout" exact component={Logout} />
+            <Route path="/logout" exact component={Logout} />
+            <Route path="*"  component={Layout}  />            
         </Switch>
     </Router>
 )

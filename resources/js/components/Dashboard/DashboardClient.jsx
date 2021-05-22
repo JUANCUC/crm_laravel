@@ -14,6 +14,12 @@ import { initAxios } from '../helpers/auth-helper'
 initAxios()
 
 export const DashboardClient = () => {
+
+    const formatter = new Intl.NumberFormat('en-Us', {
+		style: 'currency',
+		currency: 'USD'
+	})
+
     const { id } = useParams()
     const [data, setData] = useState({})
     const [sales, setSales] = useState(null)
@@ -24,7 +30,7 @@ export const DashboardClient = () => {
 		{
 			name: 'Total de ventas',
 			icon: 'fas fa-hand-holding-usd',
-			quantity: `Q ${(sales ? sales : 0 )}` ,
+			quantity: `Q ${(sales ? formatter.format(sales).replace('$', 'Q ') : 0 )}` ,
 			bg: 'bg-success'
 		},
 	]
@@ -52,7 +58,7 @@ export const DashboardClient = () => {
                 labels: labelDays,
                 datasets: [
                     {
-                        label: 'Ventas de los ultimos 30 dias',
+                        label: 'Ventas de los últimos 30 dias',
                         data: dataDays,
                         backgroundColor: '#29c7ac',
                         
@@ -69,7 +75,7 @@ export const DashboardClient = () => {
                 labels: labelMonth,
                 datasets: [
                     {
-                        label: 'Ventas del ultimos año',
+                        label: 'Ventas del último año',
                         data: dataMonth,
                         backgroundColor: '#241663',
                         

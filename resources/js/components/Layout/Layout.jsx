@@ -139,9 +139,11 @@ export const Layout = () => {
 							exact={route.exact}
 						/>
 					))}
-					<Route path={`/clientes/reportes`} exact/>
-					<Route path="/" exact/>
-					<Route path="/logout" exact/>
+					<Route path={`/clientes/reportes/:id`} exact/>
+					
+					<Route path="/logout" exact component={Logout}/>
+					{/* <Route path="*" /> */}
+					
 				</Switch>
 				</Drawer>
 				<main className="container-fluid p-5" style={{position: 'relative', height: '100vh'}}>
@@ -155,7 +157,10 @@ export const Layout = () => {
 							/>
 						))}
 						<Route path={`/clientes/reportes/:id`} exact children={<DashboardClient/>}/>
+						{/* <Route path="/logout" exact component={Logout}/> */}
 						<Route path="/logout" exact component={Logout}/>
+						<Route path="*" children={() => <h1>Pagina no encontrada!!</h1>}/>
+						
 					</Switch>
 				</main>
 		</div>
@@ -163,7 +168,9 @@ export const Layout = () => {
 	);
 }
 
-const Logout = () => {
+const Logout = (props) => {
+	console.log('/logout!')
     deleteToken()
-    return <Redirect to="/" />
+   // props.history.push('/')
+	return <Redirect to="/login" />
 }

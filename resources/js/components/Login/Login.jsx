@@ -62,7 +62,7 @@ export const Login = (props) => {
         <div className="bg-light" style={{height: '100vh', position: 'relative'}} >
             <div className="container-fluid h-100">
                 <div className="row justify-content-center align-items-center h-100">
-                    <div className="col-md-4 img d-sm-none d-md-none d-lg-flex  bg-dark" 
+                    <div className="col-md-4 img d-none d-sm-none d-md-flex d-lg-flex  bg-dark" 
                         style={{
                             
                             right: 0,
@@ -79,15 +79,15 @@ export const Login = (props) => {
                     </div> 
                     <div className="col-md-8 align-items-center" >
                         <form style={{width: 330, margin: '0 auto'}} onSubmit={handleSubmit}>
-                            <h2 className="text-center mb-4">Inicar sesion</h2>
+                            <h2 className="text-center mb-4">Iniciar sesión</h2>
                             <div className="form-group">
-                                <label htmlFor="username">Nombre de usuario</label>
+                                <label htmlFor="username">Correo electrónico</label>
                                 <input 
                                     className="form-control" 
                                     name="email" 
                                     id="username" 
                                     type="email" 
-                                    placeholder="usario" 
+                                    placeholder="usuario@mail.com" 
                                     onChange={handleChange}
                                 />
 

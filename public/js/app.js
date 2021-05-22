@@ -11869,6 +11869,10 @@ var Client = function Client() {
       setErros = _useState44[1];
 
   var columns = [{
+    name: 'ID',
+    selector: 'id',
+    sortable: true
+  }, {
     name: 'DPI',
     selector: 'dpi',
     sortable: true
@@ -12061,23 +12065,24 @@ var Client = function Client() {
             case 3:
               response = _context2.sent;
               _data2 = response.data;
+              console.log(_data2);
               setData(_data2);
               setClients(_data2);
               setSpinner(false);
-              _context2.next = 13;
+              _context2.next = 14;
               break;
 
-            case 10:
-              _context2.prev = 10;
+            case 11:
+              _context2.prev = 11;
               _context2.t0 = _context2["catch"](0);
               console.log(_context2.t0.message);
 
-            case 13:
+            case 14:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[0, 10]]);
+      }, _callee2, null, [[0, 11]]);
     }));
 
     return function getClients() {
@@ -12783,6 +12788,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Dashboard = function Dashboard() {
+  var formatter = new Intl.NumberFormat('en-Us', {
+    style: 'currency',
+    currency: 'USD'
+  });
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
@@ -12817,15 +12827,15 @@ var Dashboard = function Dashboard() {
   }, {
     name: 'Total Ventas',
     icon: 'fas fa-hand-holding-usd',
-    quantity: "Q ".concat(data.sales ? data.sales : 0),
+    quantity: "".concat(data.sales ? formatter.format(data.sales).replace('$', 'Q ') : 0),
     bg: 'bg-success'
   }, {
-    name: 'Clientes en los ultimos 30 dias',
+    name: 'Clientes en los últimos 30 dias',
     icon: 'fas fa-user-plus',
     quantity: data.last_30_days_clients ? data.last_30_days_clients : 0,
     bg: 'bg-warning'
   }, {
-    name: 'Clientes en el ultimo año',
+    name: 'Clientes en el último año',
     icon: 'fas fa-user-plus',
     quantity: data.last_year_clients ? data.last_year_clients : 0,
     bg: 'bg-info'
@@ -13001,7 +13011,7 @@ var Dashboard = function Dashboard() {
           className: "mb-4 col-md-12 col-lg-4 text-white",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_GraphPie__WEBPACK_IMPORTED_MODULE_5__.GraphPie, {
             data: dataYears,
-            title: "Clientes por departamento"
+            title: "Clientes por rango de edad"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "mb-4 col-md-12 col-lg-8 text-white",
@@ -13013,13 +13023,13 @@ var Dashboard = function Dashboard() {
           className: "mb-4 col-md-12 col-lg-8 text-white",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Graph__WEBPACK_IMPORTED_MODULE_4__.Graph, {
             data: dataMonthYear,
-            title: "Venta por mes"
+            title: "Ventas por mes"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "mb-4 col-md-12 col-lg-4 text-white",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_GraphPie__WEBPACK_IMPORTED_MODULE_5__.GraphPie, {
             data: dataMonthYear,
-            title: "Clientes por departamento"
+            title: "Ventas por mes"
           })
         })]
       })]
@@ -13081,6 +13091,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 (0,_helpers_auth_helper__WEBPACK_IMPORTED_MODULE_6__.initAxios)();
 var DashboardClient = function DashboardClient() {
+  var formatter = new Intl.NumberFormat('en-Us', {
+    style: 'currency',
+    currency: 'USD'
+  });
+
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
       id = _useParams.id;
 
@@ -13107,7 +13122,7 @@ var DashboardClient = function DashboardClient() {
   var cards = [{
     name: 'Total de ventas',
     icon: 'fas fa-hand-holding-usd',
-    quantity: "Q ".concat(sales ? sales : 0),
+    quantity: "Q ".concat(sales ? formatter.format(sales).replace('$', 'Q ') : 0),
     bg: 'bg-success'
   }];
 
@@ -13181,7 +13196,7 @@ var DashboardClient = function DashboardClient() {
               days = {
                 labels: labelDays,
                 datasets: [{
-                  label: 'Ventas de los ultimos 30 dias',
+                  label: 'Ventas de los últimos 30 dias',
                   data: dataDays,
                   backgroundColor: '#29c7ac' //backgroundColor: '#fff',
 
@@ -13196,7 +13211,7 @@ var DashboardClient = function DashboardClient() {
               months = {
                 labels: labelMonth,
                 datasets: [{
-                  label: 'Ventas del ultimos año',
+                  label: 'Ventas del último año',
                   data: dataMonth,
                   backgroundColor: '#241663' //backgroundColor: '#fff',
 
@@ -13550,14 +13565,12 @@ var Layout = function Layout() {
               exact: route.exact
             }, index);
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
-            path: "/clientes/reportes",
-            exact: true
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
-            path: "/",
+            path: "/clientes/reportes/:id",
             exact: true
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/logout",
-            exact: true
+            exact: true,
+            component: Logout
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("main", {
@@ -13581,6 +13594,13 @@ var Layout = function Layout() {
             path: "/logout",
             exact: true,
             component: Logout
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
+            path: "*",
+            children: function children() {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+                children: "Pagina no encontrada!!"
+              });
+            }
           })]
         })
       })]
@@ -13588,10 +13608,12 @@ var Layout = function Layout() {
   });
 };
 
-var Logout = function Logout() {
-  (0,_helpers_auth_helper__WEBPACK_IMPORTED_MODULE_5__.deleteToken)();
+var Logout = function Logout(props) {
+  console.log('/logout!');
+  (0,_helpers_auth_helper__WEBPACK_IMPORTED_MODULE_5__.deleteToken)(); // props.history.push('/')
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Redirect, {
-    to: "/"
+    to: "/login"
   });
 };
 
@@ -13737,7 +13759,7 @@ var Login = function Login(props) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "row justify-content-center align-items-center h-100",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "col-md-4 img d-sm-none d-md-none d-lg-flex  bg-dark",
+          className: "col-md-4 img d-none d-sm-none d-md-flex d-lg-flex  bg-dark",
           style: {
             right: 0,
             top: 0,
@@ -13764,18 +13786,18 @@ var Login = function Login(props) {
             onSubmit: handleSubmit,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
               className: "text-center mb-4",
-              children: "Inicar sesion"
+              children: "Iniciar sesi\xF3n"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "username",
-                children: "Nombre de usuario"
+                children: "Correo electr\xF3nico"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                 className: "form-control",
                 name: "email",
                 id: "username",
                 type: "email",
-                placeholder: "usario",
+                placeholder: "usuario@mail.com",
                 onChange: handleChange
               }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "invalid-feedback d-block",
@@ -13873,6 +13895,7 @@ var RouteLogin = function RouteLogin(props) {
 };
 
 var Logout = function Logout() {
+  console.log('logout');
   (0,_helpers_auth_helper__WEBPACK_IMPORTED_MODULE_4__.deleteToken)();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Redirect, {
     to: "/"
@@ -13882,8 +13905,8 @@ var Logout = function Logout() {
 var Index = function Index() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
-        path: "/",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(RouteLogin, {
+        path: "/login",
         exact: true,
         component: _Login_Login__WEBPACK_IMPORTED_MODULE_3__.Login
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(MyRoute, {
@@ -13895,7 +13918,7 @@ var Index = function Index() {
         exact: true,
         component: _Layout_Layout__WEBPACK_IMPORTED_MODULE_2__.Layout
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(MyRoute, {
-        path: "/clientes/reportes",
+        path: "/clientes/reportes/:id",
         exact: true,
         component: _Layout_Layout__WEBPACK_IMPORTED_MODULE_2__.Layout
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(MyRoute, {
@@ -13903,9 +13926,12 @@ var Index = function Index() {
         exact: true,
         component: _Layout_Layout__WEBPACK_IMPORTED_MODULE_2__.Layout
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
-        to: "/logout",
+        path: "/logout",
         exact: true,
         component: Logout
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+        path: "*",
+        component: _Layout_Layout__WEBPACK_IMPORTED_MODULE_2__.Layout
       })]
     })
   });
@@ -13952,17 +13978,18 @@ var initAxios = function initAxios() {
 
     if (token) {
       config.headers.Authorization = 'Bearer ' + token;
-    }
+    } //console.log(config)
 
-    console.log(config);
+
     return config;
   });
   axios__WEBPACK_IMPORTED_MODULE_0___default().interceptors.response.use(function (response) {
     return response;
   }, function (error) {
-    if (error.response.status == 401) {
-      deleteToken();
-      window.location = "/";
+    console.log(error);
+
+    if (error.response.status == 401) {//deleteToken()
+      //window.location = "/"
     } else {
       return Promise.reject(error);
     }

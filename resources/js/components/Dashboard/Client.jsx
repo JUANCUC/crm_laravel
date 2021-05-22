@@ -41,6 +41,11 @@ export const Client = () => {
 
 	const columns = [
 		{
+			name: 'ID',
+			selector: 'id',
+			sortable: true
+		},
+		{
 			name: 'DPI',
 			selector: 'dpi',
 			sortable: true
@@ -198,6 +203,7 @@ export const Client = () => {
 		try {
 			const response = await axios.get('/clients')
 			const data = response.data
+			console.log(data)
 			setData(data)
 			setClients(data)
 			setSpinner(false)

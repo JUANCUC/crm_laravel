@@ -12,6 +12,11 @@ import { Card } from './Card'
 
 export const Dashboard = () => {
 	
+	const formatter = new Intl.NumberFormat('en-Us', {
+		style: 'currency',
+		currency: 'USD'
+	})
+
 	const [data, setData] = useState({})
 	const [dataDepartments, setDataDepartments] = useState(null)
 	const [dataYears, setDataYears] = useState(null)
@@ -29,17 +34,17 @@ export const Dashboard = () => {
 		{
 			name: 'Total Ventas',
 			icon: 'fas fa-hand-holding-usd',
-			quantity: `Q ${(data.sales ? data.sales : 0 )}` ,
+			quantity: `${(data.sales ? formatter.format(data.sales).replace('$', 'Q ') : 0 )}` ,
 			bg: 'bg-success'
 		},
 		{
-			name: 'Clientes en los ultimos 30 dias',
+			name: 'Clientes en los últimos 30 dias',
 			icon: 'fas fa-user-plus',
 			quantity: (data.last_30_days_clients ? data.last_30_days_clients : 0 ) ,
 			bg: 'bg-warning'
 		},
 		{
-			name: 'Clientes en el ultimo año',
+			name: 'Clientes en el último año',
 			icon: 'fas fa-user-plus',
 			quantity: (data.last_year_clients ? data.last_year_clients : 0 ) ,
 			bg: 'bg-info'
@@ -159,16 +164,16 @@ export const Dashboard = () => {
 						<GraphPie data={dataDepartments} title="Clientes por departamento" />
 					</div>
 					<div className="mb-4 col-md-12 col-lg-4 text-white">
-						<GraphPie data={dataYears} title="Clientes por departamento" />
+						<GraphPie data={dataYears} title="Clientes por rango de edad" />
 					</div>
 					<div className="mb-4 col-md-12 col-lg-8 text-white">
 						<Graph data={dataYears} title="Clientes por rango de edad" />
 					</div>
 					<div className="mb-4 col-md-12 col-lg-8 text-white">
-						<Graph data={dataMonthYear} title="Venta por mes" />
+						<Graph data={dataMonthYear} title="Ventas por mes" />
 					</div>
 					<div className="mb-4 col-md-12 col-lg-4 text-white">
-						<GraphPie data={dataMonthYear} title="Clientes por departamento" />
+						<GraphPie data={dataMonthYear} title="Ventas por mes" />
 					</div>
 				</div>
 				</>

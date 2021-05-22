@@ -25,7 +25,7 @@ export const initAxios = () => {
         if(token) {
             config.headers.Authorization = 'Bearer '+ token
         }
-        console.log(config)
+        //console.log(config)
         return config
     })
 
@@ -34,9 +34,10 @@ export const initAxios = () => {
             return response
         },
         function (error) {
+            console.log(error)
             if(error.response.status == 401){
-                deleteToken()
-                window.location = "/"
+                //deleteToken()
+                //window.location = "/"
             }else {
                 return Promise.reject(error)
             }
