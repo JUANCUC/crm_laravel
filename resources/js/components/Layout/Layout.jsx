@@ -172,5 +172,5 @@ const Logout = (props) => {
 	console.log('/logout!')
     deleteToken()
    // props.history.push('/')
-	return <Redirect to="/login" />
+	return <Redirect to="/" />
 }

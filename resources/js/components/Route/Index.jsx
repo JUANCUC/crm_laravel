@@ -49,7 +49,7 @@ const Logout = () => {
 export const Index = () => (
     <Router>
         <Switch>
-            <RouteLogin path="/login" exact component={Login} />
+            <RouteLogin path="/" exact component={Login} />
             <MyRoute path="/dashboard" exact  component={Layout}  />
             <MyRoute path="/clientes" exact  component={Layout}  />
             <MyRoute path="/clientes/reportes/:id" exact  component={Layout}  />
